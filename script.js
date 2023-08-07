@@ -1,4 +1,5 @@
-const URL = "https://teachablemachine.withgoogle.com/models/fHNyT-ane/";
+const domain = window.location.protocol + "//" + window.location.host;
+const URL = domain + "/models/";
 
 async function createModel() {
   const checkpointURL = URL + "model.json"; // model topology

@@ -18,9 +18,14 @@ async function stopRecognition() {
 }
 
 async function init() {
+  const labelContainer = document.getElementById("label-container");
+  while (labelContainer.firstChild) {
+    labelContainer.removeChild(labelContainer.firstChild);
+  }
+
   recognizer = await createModel(); // Assign the global recognizer
   classLabels = recognizer.wordLabels(); // Assign classLabels globally
-  const labelContainer = document.getElementById("label-container");
+
   for (let i = 0; i < classLabels.length; i++) {
     labelContainer.appendChild(document.createElement("div"));
   }
